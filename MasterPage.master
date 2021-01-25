@@ -1,0 +1,180 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="Css/StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            height:25px;
+            background-color:#989797;
+               border-top-right-radius:9px;
+               
+               font-family:Trebuchet MS,tahoma,verdana,arial,sans-serif;
+               font-size:14px;
+   
+border-top-left-radius:9px;
+        }
+        #ustmenu {
+         float:left;
+         text-align:right;
+        margin-left:430px;
+         
+            width: auto;
+        }
+         #Panel2 {
+                       
+           width: auto;
+           
+        }
+        .footer{
+            width: 100%;
+            text-align:center;
+        }
+        .sepet {
+            width: 200px;
+        height:30px;
+            background-image: url('images/sepet1.png');
+            float:right;
+            margin-top:-18px;
+          
+        }
+        </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+       
+        <div id="anasayfa" >
+            <div id="banner">
+          
+                <table class="auto-style1">
+                    <tr>
+                        <td>
+                               <div id="ustmenu"> <a href="Hakkimizda.aspx" style="color: #000000; text-decoration:none; " onMouseOut="this.style.color='Black'" 
+onMouseOver="this.style.color ='#3c79b2'; 
+this.style.cursor = 'hand'"   > Hakkımızda </a> |&nbsp; <a href="iletisim.aspx" style="color: #000000; text-decoration:none; " onMouseOut="this.style.color='Black'" 
+onMouseOver="this.style.color ='#3c79b2'; 
+this.style.cursor = 'hand'"   > Bize Ulaşın </a>  
+
+                                 |&nbsp;<asp:LinkButton ID="SepetimLink" runat="server" style="color: #000000; text-decoration:none; font-size: 15px;" onMouseOut="this.style.color='Black'" 
+onMouseOver="this.style.color ='#3c79b2'; 
+this.style.cursor = 'hand'"  PostBackUrl="~/Sepet.aspx"  >Sepetim </asp:LinkButton>
+                                                                                      <asp:Label ID="UrunSayisi" runat="server" style="color: #000000; text-decoration:none; font-size: 15px;" onMouseOut="this.style.color='Black'" 
+onMouseOver="this.style.color ='#3c79b2'; 
+this.style.cursor = 'hand'"  >0 </asp:Label>
+                                    &nbsp;</div>
+                           <asp:Panel ID="Panel1" runat="server">
+                            <a href="UyeKayıt.aspx" style="color: #000000; text-decoration:none;" onMouseOut="this.style.color='Black'" 
+onMouseOver="this.style.color ='#3c79b2'; 
+this.style.cursor = 'hand'"    > Üye Ol </a>&nbsp;&nbsp;
+                             |&nbsp; 
+                                <a href="UyeGiris.aspx" style="color: #000000; text-decoration:none; " onMouseOut="this.style.color='Black'" 
+onMouseOver="this.style.color ='#3c79b2'; 
+this.style.cursor = 'hand'"   > Üye Giriş </a></asp:Panel>
+                      
+                             <asp:Panel ID="Panel2" runat="server">
+                        <b>      <a href="UyeSayfası.aspx" >         <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></a>&nbsp;</b>|
+
+                                               <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><b> Çıkış Yap</b></asp:LinkButton>
+                                                           
+                          
+                        
+            </asp:Panel>
+
+                        </td>
+                    </tr>
+                </table>
+          
+                &nbsp;<center> 
+            <a href="Default.aspx"><img src="images/ky-logo-3.png" /> </a>
+                    
+                </center>
+       
+                
+                 </div>
+          
+            <div id="menua"> 
+                
+            <asp:ListView ID="ListView1" runat="server" >
+              
+                
+                    <ItemTemplate> 
+                   <p>   <div id="menu" > 
+                       
+                  <a href="KategoriSayfası.aspx?KitapId=<%#Eval("Id") %>">  
+            <asp:Label ID="Label1" runat="server" onMouseOut="this.style.color='Black'" 
+onMouseOver="this.style.color ='#336699'; 
+this.style.cursor = 'hand'"   style="font-size: 13pt"  Text='<%#Eval("KategoriAd")%>' ForeColor="Black"></asp:Label></a> <br />
+    
+                
+
+            </div>
+  
+</p> </ItemTemplate>
+                            </asp:ListView>
+             <br />   </div>
+          <br />
+        
+           
+               <hr /> 
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">   </asp:ContentPlaceHolder>
+      
+            
+               <div id="footer">
+
+
+                   
+
+
+
+                   <table class="footer">
+                       <tr>
+                             <td></td>
+                           <td colspan="4">&nbsp;&nbsp;</td>
+                           <td></td>
+                           <td></td>
+                       </tr>
+                       <tr>
+                          <td>&nbsp;</td>
+                            <td></td>
+                                 <td></td>
+                           <td><a href="Hakkimizda.aspx" style="color: #000000; text-decoration:none; " onMouseOut="this.style.color='Black'" 
+onMouseOver="this.style.color ='#3c79b2'; 
+this.style.cursor = 'hand'"   > Hakkımızda </a>&nbsp; |&nbsp; <a href="iletisim.aspx" style="color: #000000; text-decoration:none; " onMouseOut="this.style.color='Black'" 
+onMouseOver="this.style.color ='#3c79b2'; 
+this.style.cursor = 'hand'"   > Bize Ulaşın </a>&nbsp; </td>
+                          
+                           <td></td>
+                           <td></td>
+                     
+                           <td></td>
+                       </tr>
+                       <tr>
+                           <td></td>
+                           <td colspan="5">Copyright ©&nbsp; 2015</td>
+                           <td></td>
+                       </tr>
+                       </table>
+
+
+                   
+
+
+
+        </div>
+              </div>
+  
+
+     
+
+    </div>
+    </form>
+</body>
+</html>
